@@ -1,4 +1,4 @@
-# main.tf
+
 provider "aws" {
   region                 = "us-east-1"  # Change to your preferred region
   access_key            = var.aws_access_key_id
@@ -75,4 +75,19 @@ resource "aws_iam_policy_attachment" "eventbridge_policy_attachment" {
   policy_arn = aws_iam_policy.eventbridge_sns_publish_policy.arn
 }
 
+# Step 8: Define variables
+variable "sns_email" {
+  description = "The email address for SNS notifications"
+  type        = string
+}
+
+variable "aws_access_key_id" {
+  description = "AWS Access Key ID"
+  type        = string
+}
+
+variable "aws_secret_access_key" {
+  description = "AWS Secret Access Key"
+  type        = string
+}
 
